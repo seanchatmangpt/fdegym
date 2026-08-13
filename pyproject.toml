@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fdegym"
+version = "26.8.13"
+description = "DFCM + GymAct execution gym for Fortune-5 forward-deployed engineering"
+readme = "README.md"
+requires-python = ">=3.11,<4"
+license = { text = "MIT" }
+authors = [{ name = "Sean Chatman" }]
+keywords = ["forward-deployed-engineering", "cloud", "gymact", "ggen", "dfcm", "enterprise-architecture"]
+dependencies = []
+
+[project.optional-dependencies]
+runtime = ["gymact>=26.8.8,<27"]
+dev = ["pytest>=8.3,<9", "ruff>=0.15,<1"]
+
+[project.scripts]
+fdegym = "fdegym.cli:main"
+
+[tool.pytest.ini_options]
+addopts = "-q -rs --strict-config --strict-markers"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF"]
