@@ -1,0 +1,31 @@
+[project]
+name = "fdegym-fortune5-pack"
+version = "26.8.13"
+
+[ontology]
+source = "ontology.ttl"
+
+[validation]
+gates = ["gates/010_required_dimensions.rq"]
+
+[generation]
+output_dir = "."
+
+[[generation.rules]]
+name = "dfcm-dimension-manifest"
+query = { inline = """
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX f: <urn:fdegym:fortune5:>
+SELECT ?id ?title ?cardinality ?authority WHERE {
+  ?dimension a f:Dimension ;
+    dcterms:identifier ?id ;
+    dcterms:title ?title ;
+    f:cardinality ?cardinality ;
+    f:authority ?authority .
+}
+ORDER BY ?id
+""" }
+template = { file = "templates/dimensions.md.tera" }
+output_file = "generated/dimensions.md"
+skip_empty = false
+mode = "Overwrite"
