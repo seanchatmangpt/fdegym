@@ -11,7 +11,6 @@ from dataclasses import dataclass
 
 from .dfcm import Dimension, PossibilitySpace
 
-
 CAPABILITY_FAMILIES = (
     "compute",
     "virtual-machines",
