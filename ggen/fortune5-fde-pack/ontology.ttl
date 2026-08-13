@@ -1,0 +1,86 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix f: <urn:fdegym:fortune5:> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+f:profile a prov:Entity ;
+  dcterms:identifier "fdegym-fortune5/26.8.13" ;
+  dcterms:title "Fortune-5 FDE DFCM dimension profile" .
+
+f:cloud-provider-topology a f:Dimension ;
+  dcterms:identifier "cloud-provider-topology" ;
+  dcterms:title "Cloud provider topology" ;
+  f:cardinality "dynamic:provider-grounded" ;
+  f:authority "gymact.cloud_topology" .
+
+f:service a f:Dimension ;
+  dcterms:identifier "service" ;
+  dcterms:title "Provider service identity" ;
+  f:cardinality "dynamic:provider-grounded" ;
+  f:authority "gymact.cloud_topology" .
+
+f:operation a f:Dimension ;
+  dcterms:identifier "operation" ;
+  dcterms:title "Provider service operation" ;
+  f:cardinality "dynamic:authoritative-manifest" ;
+  f:authority "botocore-or-admitted-provider-manifest" .
+
+f:capability-family a f:Dimension ;
+  dcterms:identifier "capability-family" ;
+  dcterms:title "Cross-provider capability family" ;
+  f:cardinality "static:42" ;
+  f:authority "fdegym.catalog.CAPABILITY_FAMILIES" .
+
+f:protocol a f:Dimension ;
+  dcterms:identifier "protocol" ;
+  dcterms:title "Protocol and interoperability standard" ;
+  f:cardinality "static:65" ;
+  f:authority "fdegym.catalog.PROTOCOLS" .
+
+f:fde-role a f:Dimension ;
+  dcterms:identifier "fde-role" ;
+  dcterms:title "Forward-deployed engineering role" ;
+  f:cardinality "static:14" ;
+  f:authority "fdegym.catalog.FDE_ROLES" .
+
+f:lifecycle-stage a f:Dimension ;
+  dcterms:identifier "lifecycle-stage" ;
+  dcterms:title "Forward-deployment lifecycle stage" ;
+  f:cardinality "static:12" ;
+  f:authority "fdegym.catalog.LIFECYCLE_STAGES" .
+
+f:failure-mode a f:Dimension ;
+  dcterms:identifier "failure-mode" ;
+  dcterms:title "Enterprise failure mode" ;
+  f:cardinality "static:22" ;
+  f:authority "fdegym.catalog.FAILURE_MODES" .
+
+f:control-domain a f:Dimension ;
+  dcterms:identifier "control-domain" ;
+  dcterms:title "Enterprise control domain" ;
+  f:cardinality "static:22" ;
+  f:authority "fdegym.catalog.CONTROL_DOMAINS" .
+
+f:quality-attribute a f:Dimension ;
+  dcterms:identifier "quality-attribute" ;
+  dcterms:title "Enterprise quality attribute" ;
+  f:cardinality "static:18" ;
+  f:authority "fdegym.catalog.QUALITY_ATTRIBUTES" .
+
+f:scenario a f:Dimension ;
+  dcterms:identifier "scenario" ;
+  dcterms:title "Fortune-5 forward-deployment scenario" ;
+  f:cardinality "static:10" ;
+  f:authority "fdegym.scenarios.SCENARIOS" .
+
+f:assessment-domain a f:Dimension ;
+  dcterms:identifier "assessment-domain" ;
+  dcterms:title "FDE assessment domain" ;
+  f:cardinality "static:8" ;
+  f:authority "fdegym.catalog.ASSESSMENT_DOMAINS" .
+
+f:critical-failure a f:Dimension ;
+  dcterms:identifier "critical-failure" ;
+  dcterms:title "Assessment critical failure" ;
+  f:cardinality "static:9" ;
+  f:authority "fdegym.catalog.CRITICAL_FAILURES" .
