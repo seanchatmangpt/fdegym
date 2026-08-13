@@ -9,9 +9,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
 from math import prod
-from typing import Iterable, Mapping, Sequence
 
 
 @dataclass(frozen=True, slots=True)
@@ -74,7 +74,9 @@ class PossibilitySpace:
         raw = json.dumps(payload, ensure_ascii=False, separators=(",", ":")).encode()
         return f"sha256:{hashlib.sha256(raw).hexdigest()}"
 
-    def _filtered_dimensions(self, filters: Mapping[str, Iterable[str]] | None) -> tuple[Dimension, ...]:
+    def _filtered_dimensions(
+        self, filters: Mapping[str, Iterable[str]] | None
+    ) -> tuple[Dimension, ...]:
         if not filters:
             return self._dimensions
         known = {d.name for d in self._dimensions}
