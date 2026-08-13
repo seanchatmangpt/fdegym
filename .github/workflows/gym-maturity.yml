@@ -1,0 +1,27 @@
+name: gym-maturity
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check 5x7 maturity contract
+        run: python verify_maturity.py check
+      - name: Manufacture deterministic evaluation receipt
+        run: python verify_maturity.py evaluate --out gym-receipt.json
+      - name: Replay receipt
+        run: python verify_maturity.py replay gym-receipt.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gym-maturity-receipt
+          path: gym-receipt.json
