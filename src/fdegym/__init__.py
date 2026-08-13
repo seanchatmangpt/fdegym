@@ -6,14 +6,14 @@ from .provider import FDEEnvironment, FDEProvider, TopologyView, register_with
 from .scenarios import SCENARIOS, Scenario, get_scenario
 
 __all__ = [
+    "GYMACT_TOPOLOGY_PROVIDERS",
+    "SCENARIOS",
     "Candidate",
     "Dimension",
     "FDEEnvironment",
     "FDEProvider",
-    "GYMACT_TOPOLOGY_PROVIDERS",
     "PossibilityPage",
     "PossibilitySpace",
-    "SCENARIOS",
     "Scenario",
     "TopologyView",
     "base_space",
