@@ -50,13 +50,25 @@ def load_gymact_topology(provider: str) -> TopologyView:
 
 
 _CAPABILITY_SPECS = (
-    ("architecture_doctor", "Explain current FDE architecture gaps and lawful next transitions", "READ"),
+    (
+        "architecture_doctor",
+        "Explain current FDE architecture gaps and lawful next transitions",
+        "READ",
+    ),
     ("list_dimensions", "List DFCM dimensions and cardinalities", "READ"),
-    ("enumerate_possibilities", "Enumerate a bounded deterministic page of the lazy DFCM graph", "READ"),
+    (
+        "enumerate_possibilities",
+        "Enumerate a bounded deterministic page of the lazy DFCM graph",
+        "READ",
+    ),
     ("list_regions", "List provider-grounded cloud regions", "READ"),
     ("list_services", "List provider-grounded cloud services", "READ"),
     ("inspect_scenario", "Inspect mission, controls, failures, and evidence obligations", "READ"),
-    ("score_assessment", "Apply D1-D8 FDE assessment gates to evidence-backed supplied scores", "READ"),
+    (
+        "score_assessment",
+        "Apply D1-D8 FDE assessment gates to evidence-backed supplied scores",
+        "READ",
+    ),
     ("select_candidate", "Select one reversible candidate in the bounded FDE world", "DO"),
     ("deploy_simulated", "Deploy the selected candidate into the bounded simulated world", "DO"),
     ("apply_control", "Apply a named enterprise control to the bounded world", "DO"),
@@ -71,7 +83,9 @@ def capability_specs() -> tuple[tuple[str, str, str], ...]:
 
 
 class FDEEnvironment:
-    def __init__(self, *, provider: str, scenario: str, topology: TopologyView | None = None) -> None:
+    def __init__(
+        self, *, provider: str, scenario: str, topology: TopologyView | None = None
+    ) -> None:
         self.environment_id = f"urn:fdegym:environment:{uuid4().hex}"
         self.requires_authority = True
         self.provider = provider
@@ -194,7 +208,9 @@ class FDEEnvironment:
             scores = payload.get("domain_scores")
             failures = payload.get("unresolved_critical_failures", [])
             if not isinstance(scores, dict) or not isinstance(failures, list):
-                raise ValueError("domain_scores must be an object and unresolved_critical_failures a list")
+                raise ValueError(
+                    "domain_scores must be an object and unresolved_critical_failures a list"
+                )
             decision = score_assessment(
                 scores, unresolved_critical_failures=tuple(str(item) for item in failures)
             )
