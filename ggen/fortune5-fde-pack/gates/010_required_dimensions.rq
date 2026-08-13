@@ -1,0 +1,27 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX f: <urn:fdegym:fortune5:>
+SELECT ?dimension ?violation WHERE {
+  {
+    ?dimension a f:Dimension .
+    FILTER NOT EXISTS { ?dimension dcterms:identifier ?id }
+    BIND("missing identifier" AS ?violation)
+  }
+  UNION
+  {
+    ?dimension a f:Dimension .
+    FILTER NOT EXISTS { ?dimension dcterms:title ?title }
+    BIND("missing title" AS ?violation)
+  }
+  UNION
+  {
+    ?dimension a f:Dimension .
+    FILTER NOT EXISTS { ?dimension f:cardinality ?cardinality }
+    BIND("missing cardinality law" AS ?violation)
+  }
+  UNION
+  {
+    ?dimension a f:Dimension .
+    FILTER NOT EXISTS { ?dimension f:authority ?authority }
+    BIND("missing authority" AS ?violation)
+  }
+}
