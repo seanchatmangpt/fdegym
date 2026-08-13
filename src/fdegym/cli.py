@@ -88,7 +88,8 @@ def main(argv: list[str] | None = None) -> int:
     try:
         return int(args.func(args))
     except (RuntimeError, ValueError, KeyError) as exc:
-        _print({"standing": "UNSUPPORTED" if "UNSUPPORTED:" in str(exc) else "BLOCKED", "reason": str(exc)})
+        standing = "UNSUPPORTED" if "UNSUPPORTED:" in str(exc) else "BLOCKED"
+        _print({"standing": standing, "reason": str(exc)})
         return 2
 
 
