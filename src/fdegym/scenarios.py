@@ -41,7 +41,10 @@ SCENARIOS = (
     Scenario(
         "regulated-payments",
         "Regulated global payments platform",
-        "Operate low-latency payments with regional failure, strong isolation, and auditable recovery.",
+        (
+            "Operate low-latency payments with regional failure, strong isolation, "
+            "and auditable recovery."
+        ),
         ("compute", "networking", "relational-database", "messaging-eventing", "sre-resilience"),
         ("TLS1.3", "HTTP/2", "gRPC", "Apache-Kafka"),
         ("segmentation", "encryption-at-rest", "audit-logging", "multi-region-recovery"),
@@ -51,7 +54,10 @@ SCENARIOS = (
     Scenario(
         "media-supply-chain",
         "Global media supply chain",
-        "Move large media assets through ingest, processing, rights, localization, and distribution.",
+        (
+            "Move large media assets through ingest, processing, rights, localization, "
+            "and distribution."
+        ),
         ("storage-object", "batch-hpc", "messaging-eventing", "cdn-edge", "data-lake"),
         ("S3-API", "HTTP/2", "CloudEvents", "OpenTelemetry-OTLP"),
         ("data-classification", "retention-deletion", "software-supply-chain", "cost-allocation"),
@@ -101,7 +107,10 @@ SCENARIOS = (
     Scenario(
         "api-ecosystem",
         "Enterprise API and event ecosystem",
-        "Standardize synchronous and asynchronous integration without centralizing every implementation.",
+        (
+            "Standardize synchronous and asynchronous integration without centralizing "
+            "every implementation."
+        ),
         ("integration-api-management", "messaging-eventing", "identity-access", "observability"),
         ("OpenAPI", "AsyncAPI", "REST", "GraphQL", "gRPC", "CloudEvents", "OAuth2"),
         ("least-privilege", "audit-logging", "policy-as-code", "slo-error-budget"),
@@ -121,7 +130,10 @@ SCENARIOS = (
     Scenario(
         "ma-platform-integration",
         "M&A platform integration",
-        "Integrate acquired identity, network, data, developer, and governance planes incrementally.",
+        (
+            "Integrate acquired identity, network, data, developer, and governance planes "
+            "incrementally."
+        ),
         ("identity-access", "networking", "data-lake", "devex-cicd", "policy-governance"),
         ("SAML2", "SCIM2", "BGP", "REST", "OCI-Image"),
         ("least-privilege", "segmentation", "data-classification", "software-supply-chain"),
@@ -137,4 +149,5 @@ def get_scenario(slug: str) -> Scenario:
     try:
         return SCENARIO_BY_SLUG[slug]
     except KeyError as exc:
-        raise KeyError(f"unknown FDE scenario {slug!r}; choose from {sorted(SCENARIO_BY_SLUG)}") from exc
+        choices = sorted(SCENARIO_BY_SLUG)
+        raise KeyError(f"unknown FDE scenario {slug!r}; choose from {choices}") from exc
