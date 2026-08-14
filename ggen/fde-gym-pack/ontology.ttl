@@ -1,0 +1,67 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:fdegym:profile> a prov:Entity ;
+  dcterms:title "Fortune-5 Forward-Deployed Engineering Gym profile" ;
+  dcterms:identifier "fdegym/26.8.13" ;
+  dcterms:description "Public-semantic source for FDE scenario, protocol, and capability projections. Provider cloud services remain grounded by GymAct provider data rather than copied into this graph." .
+
+<urn:fdegym:scheme:protocol> a skos:ConceptScheme ;
+  skos:prefLabel "FDE protocol standards" .
+
+<urn:fdegym:protocol:oidc> a skos:Concept ;
+  skos:inScheme <urn:fdegym:scheme:protocol> ;
+  skos:notation "OpenID-Connect" ;
+  skos:prefLabel "OpenID Connect" .
+
+<urn:fdegym:protocol:otel> a skos:Concept ;
+  skos:inScheme <urn:fdegym:scheme:protocol> ;
+  skos:notation "OpenTelemetry-OTLP" ;
+  skos:prefLabel "OpenTelemetry Protocol" .
+
+<urn:fdegym:protocol:mcp> a skos:Concept ;
+  skos:inScheme <urn:fdegym:scheme:protocol> ;
+  skos:notation "MCP" ;
+  skos:prefLabel "Model Context Protocol" .
+
+<urn:fdegym:protocol:a2a> a skos:Concept ;
+  skos:inScheme <urn:fdegym:scheme:protocol> ;
+  skos:notation "A2A" ;
+  skos:prefLabel "Agent-to-Agent protocol" .
+
+<urn:fdegym:scenario:global-identity> a prov:Entity ;
+  dcterms:identifier "global-identity" ;
+  dcterms:title "Global workforce and customer identity" .
+
+<urn:fdegym:scenario:regulated-payments> a prov:Entity ;
+  dcterms:identifier "regulated-payments" ;
+  dcterms:title "Regulated global payments platform" .
+
+<urn:fdegym:scenario:enterprise-genai> a prov:Entity ;
+  dcterms:identifier "enterprise-genai" ;
+  dcterms:title "Governed enterprise GenAI platform" .
+
+<urn:fdegym:capability:architecture_doctor> a sosa:Procedure ;
+  dcterms:title "Architecture doctor" ;
+  dcterms:identifier "architecture_doctor" .
+
+<urn:fdegym:capability:enumerate_possibilities> a sosa:Procedure ;
+  dcterms:title "Enumerate bounded DFCM possibilities" ;
+  dcterms:identifier "enumerate_possibilities" .
+
+<urn:fdegym:shape:GlobalIdentityScenario> a sh:NodeShape ;
+  sh:targetNode <urn:fdegym:scenario:global-identity> ;
+  sh:property [
+    sh:path dcterms:identifier ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:string
+  ] ;
+  sh:property [
+    sh:path dcterms:title ;
+    sh:minCount 1
+  ] .

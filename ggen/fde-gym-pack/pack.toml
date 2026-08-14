@@ -1,0 +1,4 @@
+[pack]
+name = "fde-gym-pack"
+version = "26.8.13"
+description = "Manufacture FDE scenario/catalog projections from public semantic resources; GymAct remains the execution authority."

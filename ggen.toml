@@ -1,0 +1,8 @@
+[project]
+name = "fdegym"
+
+[ontology]
+source = "ggen/fde-gym-pack/ontology.ttl"
+
+[packs]
+fde-gym-pack = { path = "ggen/fde-gym-pack" }
