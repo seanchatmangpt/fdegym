@@ -4,7 +4,7 @@
   fta:rank 15 ;
   fta:repo "seanchatmangpt/fdegym" ;
   fta:exactHead "2d7c5acb3cbb8df1608cf9b81be53a74e39a1946" ;
-  fta:producerHead "7eb9a7767013bf2ce94f62ce57482afd041abdc7" ;
+  fta:producerHead "92e319a927db0b10e6b74a04a1ac490e1d0bb466" ;
   fta:compatibilityState "COMPATIBLE_READY" ;
   fta:qualificationState "REQUALIFYING" ;
   fta:consumerShape "ggen-root-manifest" ;
