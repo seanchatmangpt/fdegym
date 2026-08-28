@@ -1,0 +1,7 @@
+@prefix oc: <https://ggen.dev/ontology/option-capital#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+oc:ws3Cap05 a oc:Capability ; oc:name "fdegym-runtime-graceful-shutdown" ; oc:standing "ADMITTED" .
+oc:ws3Comp05 a oc:Composition ; oc:member oc:ws3Cap05 ; oc:order 1 ; oc:reversible true .
+oc:ws3Candidate05 a oc:Candidate ; oc:composition oc:ws3Comp05 ; oc:repository "seanchatmangpt/fdegym" ; oc:marketplaceSupport "option-capital-hypergraph-pack" ; oc:missingPrimitive "NONE" ; oc:qualification "ggen-sync-run+deterministic-replay" ; oc:reversibility 1.0 ; oc:expectedReuse 1 ; oc:expectedCapabilitySpaceDelta 1 ; oc:executable true ; oc:dominated false .
+oc:ws3Edge05 a oc:OpportunityEdge ; oc:capability oc:ws3Cap05 ; oc:composition oc:ws3Comp05 ; oc:candidate oc:ws3Candidate05 ; oc:repository "seanchatmangpt/fdegym" ; oc:marketplaceSupport "option-capital-hypergraph-pack" ; oc:missingPrimitive "NONE" ; oc:qualification "ggen-sync-run+deterministic-replay" ; oc:reversibility 1.0 ; oc:expectedReuse 1 ; oc:expectedCapabilitySpaceDelta 1 ; oc:authority "SELECT|CONSTRUCT|VERIFY" ; oc:actuationPerformed false .
