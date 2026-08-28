@@ -1,0 +1,2 @@
+@prefix fta: <https://ggen.dev/ontology/forced-top25-admissibility#> .
+<urn:ws3:fdegym:runtime-workflow> a fta:FanoutTarget ; fta:rank 15 ; fta:repo "seanchatmangpt/fdegym" ; fta:exactHead "c7b51338fd7659540bfb1f559b02f426a61c460f" ; fta:producerHead "c779aec20d9c93727c7ad4464f1dd52ac8e066e4" ; fta:compatibilityState "COMPATIBLE_READY" ; fta:qualificationState "REQUALIFYING" ; fta:consumerShape "runtime-workflow" ; fta:authority "VERIFY|CONSTRUCT" ; fta:consequentialDo false .
