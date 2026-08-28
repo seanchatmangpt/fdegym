@@ -1,0 +1,7 @@
+@prefix oc: <https://ggen.dev/ontology/option-capital#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+oc:ws3Cap01 a oc:Capability ; oc:name "fdegym-runtime-health-probe-identity" ; oc:standing "ADMITTED" .
+oc:ws3Comp01 a oc:Composition ; oc:member oc:ws3Cap01 ; oc:order 1 ; oc:reversible true .
+oc:ws3Candidate01 a oc:Candidate ; oc:composition oc:ws3Comp01 ; oc:repository "seanchatmangpt/fdegym" ; oc:marketplaceSupport "option-capital-hypergraph-pack" ; oc:missingPrimitive "NONE" ; oc:qualification "ggen-sync-run+deterministic-replay" ; oc:reversibility 1.0 ; oc:expectedReuse 1 ; oc:expectedCapabilitySpaceDelta 1 ; oc:executable true ; oc:dominated false .
+oc:ws3Edge01 a oc:OpportunityEdge ; oc:capability oc:ws3Cap01 ; oc:composition oc:ws3Comp01 ; oc:candidate oc:ws3Candidate01 ; oc:repository "seanchatmangpt/fdegym" ; oc:marketplaceSupport "option-capital-hypergraph-pack" ; oc:missingPrimitive "NONE" ; oc:qualification "ggen-sync-run+deterministic-replay" ; oc:reversibility 1.0 ; oc:expectedReuse 1 ; oc:expectedCapabilitySpaceDelta 1 ; oc:authority "SELECT|CONSTRUCT|VERIFY" ; oc:actuationPerformed false .
