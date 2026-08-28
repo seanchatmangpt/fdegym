@@ -1,0 +1,5 @@
+@prefix oc: <https://ggen.dev/ontology/option-capital#> .
+oc:ws3Cap21 a oc:Capability ; oc:name "fdegym-runtime-retry-classification" ; oc:standing "ADMITTED" .
+oc:ws3Comp21 a oc:Composition ; oc:member oc:ws3Cap21 ; oc:order 1 ; oc:reversible true .
+oc:ws3Candidate21 a oc:Candidate ; oc:composition oc:ws3Comp21 ; oc:repository "seanchatmangpt/fdegym" ; oc:marketplaceSupport "option-capital-hypergraph-pack" ; oc:missingPrimitive "NONE" ; oc:qualification "ggen-sync-run+deterministic-replay" ; oc:reversibility 1.0 ; oc:expectedReuse 1 ; oc:expectedCapabilitySpaceDelta 1 ; oc:executable true ; oc:dominated false .
+oc:ws3Edge21 a oc:OpportunityEdge ; oc:capability oc:ws3Cap21 ; oc:composition oc:ws3Comp21 ; oc:candidate oc:ws3Candidate21 ; oc:repository "seanchatmangpt/fdegym" ; oc:marketplaceSupport "option-capital-hypergraph-pack" ; oc:missingPrimitive "NONE" ; oc:qualification "ggen-sync-run+deterministic-replay" ; oc:reversibility 1.0 ; oc:expectedReuse 1 ; oc:expectedCapabilitySpaceDelta 1 ; oc:authority "SELECT|CONSTRUCT|VERIFY" ; oc:actuationPerformed false .
